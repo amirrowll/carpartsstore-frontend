@@ -236,7 +236,7 @@ const ContactUsPage: React.FC = () => {
                     <Phone className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-800 mb-1 text-right">شمارههای تماس</h4>
+                    <h4 className="font-bold text-gray-800 mb-1 text-right">شماره های تماس</h4>
                     <div className="space-y-2 text-right">
                       <p className="text-gray-700">پشتیبانی: <span className="font-bold">09196408805</span></p>
                       <p className="text-gray-700">مدیریت: <span className="font-bold">09308368089</span></p>
@@ -263,25 +263,9 @@ const ContactUsPage: React.FC = () => {
                     <MessageCircle className="h-5 w-5 text-purple-600" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-800 mb-1 text-right">شبکههای اجتماعی</h4>
+                    <h4 className="font-bold text-gray-800 mb-1 text-right">شبکه های اجتماعی</h4>
                     <div className="space-y-1 text-right">
-                      <p className="text-gray-700">تلگرام: <span className="font-bold">@pinparts</span></p>
-                      <p className="text-gray-700">واتساپ: <span className="font-bold">۲ گروه فعال</span></p>
-                      <p className="text-gray-700">اینستاگرام: <span className="font-bold">@pinparts</span></p>
-                    </div>
-                    <div className="mt-2 space-y-1">
-                      <a href="https://t.me/pinparts" target="_blank" rel="noopener noreferrer" className="block text-blue-600 hover:text-blue-800 text-sm">
-                        https://t.me/pinparts
-                      </a>
-                      <a href="https://chat.whatsapp.com/CGCLTGEoouVEfgybJMlWw8?mode=wwc" target="_blank" rel="noopener noreferrer" className="block text-green-600 hover:text-green-800 text-sm">
-                        گروه واتساپ ۱
-                      </a>
-                      <a href="https://chat.whatsapp.com/KswfWmJSRAsGI5TAHVO1Hi" target="_blank" rel="noopener noreferrer" className="block text-green-600 hover:text-green-800 text-sm">
-                        گروه واتساپ ۲
-                      </a>
-                      <a href="https://instagram.com/pinparts" target="_blank" rel="noopener noreferrer" className="block text-pink-600 hover:text-pink-800 text-sm">
-                        https://instagram.com/pinparts
-                      </a>
+                      <p className="text-gray-700">برای دسترسی سریع به کانالهای ارتباطی، از نوار ابزار سمت چپ صفحه استفاده کنید</p>
                     </div>
                   </div>
                 </div>

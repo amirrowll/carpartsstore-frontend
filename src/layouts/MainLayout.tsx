@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import TestFloatingButton from '../components/TestFloatingButton';
+import PinpartSocialToolbarFinal from '../components/PinpartSocialToolbarFinal';
 
 const MainLayout = () => {
   return (
@@ -11,7 +11,7 @@ const MainLayout = () => {
         <Outlet />
       </main>
       <Footer />
-      <TestFloatingButton />
+      <PinpartSocialToolbarFinal />
     </div>
   );
 };
