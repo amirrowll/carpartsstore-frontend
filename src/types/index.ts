@@ -30,7 +30,7 @@ export interface RegisterRequest {
 }
 
 // Product Types
-export type ProductBrand = 'چینی' | 'سایپا' | 'ایران خودرو';
+export type ProductBrand = 'چینی' | 'سایپا' | 'ایران خودرو' | 'سایر برندها' | 'Chinese' | 'Saipa' | 'IranKhodro';
 
 export type ProductModel =
   | 'پژو 206'
@@ -39,7 +39,17 @@ export type ProductModel =
   | 'دنا'
   | 'تیبا'
   | 'پراید'
-  | 'سورن';
+  | 'سورن'
+  | 'چری'
+  | 'هیوندای'
+  | 'ام جی'
+  | 'کوییک'
+  | 'تویوتا'
+  | 'Chery'
+  | 'Hyundai'
+  | 'MG'
+  | 'Quick'
+  | 'Toyota';
 
 export type ProductStatus = 'Available' | 'OutOfStock' | 'Discontinued';
 
@@ -75,6 +85,10 @@ export interface Product {
   material?: string;
   updatedAt?: string;
   lastViewedAt?: string;
+  // New fields for tags and car brands
+  tags?: string[];
+  hashtags?: string[];
+  carBrand?: string;
 }
 
 export interface ProductFilter {
@@ -98,6 +112,25 @@ export interface ProductResponse {
   page: number;
   pageSize: number;
   totalPages: number;
+}
+
+// Search Filters Type
+export interface SearchFilters {
+  search?: string;
+  brand?: string;
+  carBrand?: string;
+  carModel?: string;
+  partNumber?: string;
+  compatibleCars?: string;
+  material?: string;
+  warranty?: string;
+  tags?: string[];
+  hashtags?: string[];
+  isFeatured?: boolean;
+  sortBy?: string;
+  sortDescending?: boolean;
+  page: number;
+  pageSize: number;
 }
 
 // Category Types

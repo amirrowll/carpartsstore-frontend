@@ -45,10 +45,10 @@ const ContactUsPage: React.FC = () => {
       title: 'اینستاگرام',
       description: 'صفحه اینستاگرام ما را دنبال کنید',
       icon: <Instagram className="h-8 w-8 text-pink-600" />,
-      action: () => window.open('https://instagram.com/pinparts', '_blank'),
+      action: () => window.open('https://instagram.com/direct/t/pinparts', '_blank'),
       color: 'bg-pink-50 hover:bg-pink-100',
       textColor: 'text-pink-700',
-      buttonText: 'مشاهده صفحه',
+      buttonText: 'پیام در اینستاگرام',
       username: '@pinparts'
     }
   ];

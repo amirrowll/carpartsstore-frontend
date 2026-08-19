@@ -14,7 +14,7 @@ const completeImageUrl = (url: string | undefined): string => {
   
   // If it's a relative path starting with /uploads/, complete it
   if (url.startsWith('/uploads/')) {
-    return `http://127.0.0.1:5000${url}`;
+    return `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://127.0.0.1:5000'}${url}`;
   }
   
   if (url.startsWith('blob:')) return url;
@@ -100,8 +100,17 @@ const ProductsPageImproved: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <SEO 
         title={category ? `${category.name} - فروشگاه قطعات خودرو` : 'محصولات - فروشگاه قطعات خودرو'}
-        description={category ? category.description : 'مجموعهای از بهترین قطعات لوازم یدکی با دسته بندی های تخصصی'}
-        keywords={category ? `${category.name}, قطعات خودرو, لوازم یدکی, ${category.name} قطعات` : 'قطعات خودرو, لوازم یدکی, خرید قطعات خودرو'}
+        description={category ? `${category.description || category.name} - خرید آنلاین قطعات یدکی با بهترین قیمت` : 'مجموعه کامل قطعات لوازم یدکی خودرو با دسته‌بندی تخصصی'}
+        keywords={category ? `${category.name}, قطعات خودرو, لوازم یدکی, خرید ${category.name}, ${category.name} قطعات` : 'قطعات خودرو, لوازم یدکی, خرید قطعات خودرو'}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'خانه', item: 'https://pinpartstore.com' },
+            { '@type': 'ListItem', position: 2, name: 'محصولات', item: 'https://pinpartstore.com/products' },
+            ...(category ? [{ '@type': 'ListItem', position: 3, name: category.name, item: `https://pinpartstore.com/category/${category.id}` }] : []),
+          ],
+        }}
       />
       <div className="container mx-auto px-4 py-6 sm:py-8 lg:py-10">
         {/* Header */}
@@ -290,8 +299,9 @@ const ProductsPageImproved: React.FC = () => {
         ) : (
           <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredProducts.map((product) => (
-              <div 
-                key={product.id} 
+              <Link 
+                key={product.id}
+                to={`/products/${product.id}`}
                 className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-3 sm:p-4 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
                 {/* Product Image */}
@@ -300,6 +310,7 @@ const ProductsPageImproved: React.FC = () => {
                     src={completeImageUrl(product.imageUrl) || 'https://cdn-icons-png.flaticon.com/512/2972/2972264.png'}
                     alt={product.name}
                     className="w-full h-full object-contain p-3"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = 'https://cdn-icons-png.flaticon.com/512/2972/2972264.png';
                     }}
@@ -382,7 +393,7 @@ const ProductsPageImproved: React.FC = () => {
                 </div>
 
 
-              </div>
+              </Link>
             ))}
           </div>
         )}

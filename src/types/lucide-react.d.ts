@@ -8,7 +8,7 @@ declare module 'lucide-react' {
   
   export type Icon = FC<IconProps>;
   
-  // Export all icons
+  // Export all icons used in the project
   export const Search: Icon;
   export const Menu: Icon;
   export const X: Icon;
@@ -41,4 +41,27 @@ declare module 'lucide-react' {
   export const Trash2: Icon;
   export const StarIcon: Icon;
   export const Tag: Icon;
+  export const Filter: Icon;
+  export const ChevronLeft: Icon;
+  export const ChevronRight: Icon;
+  export const Image: Icon;
+  export const Save: Icon;
+  export const EyeOff: Icon;
+  export const Loader: Icon;
+  export const Upload: Icon;
+  export const Pause: Icon;
+  export const Play: Icon;
+  export const Home: Icon;
+  export const Users: Icon;
+  export const Folder: Icon;
+  export const TrendingUp: Icon;
+  export const Building: Icon;
+  export const Check: Icon;
+  export const LogOut: Icon;
+  export const ArrowLeft: Icon;
+  export const MessageCircle: Icon;
+  export const Send: Icon;
+  export const ArrowRight: Icon;
+  export const AlertCircle: Icon;
+  export const Hash: Icon;
 }

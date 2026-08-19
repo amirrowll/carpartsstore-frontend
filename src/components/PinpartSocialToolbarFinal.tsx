@@ -8,21 +8,19 @@ const PinpartSocialToolbarFinal: React.FC = () => {
   const socialChannels = [
     {
       id: 'whatsapp1',
-      name: 'واتساپ پشتیبانی ۱',
+      name: 'کانال اول',
       icon: <WhatsApp fontSize="small" />,
       url: 'https://chat.whatsapp.com/CGCLTGEoouVEfgybJMlWw8?mode=wwc',
       color: 'bg-green-500 hover:bg-green-600',
       textColor: 'text-green-700',
-      description: 'گروه اصلی پشتیبانی'
     },
     {
       id: 'whatsapp2',
-      name: 'واتساپ پشتیبانی ۲',
+      name: 'کانال دوم',
       icon: <WhatsApp fontSize="small" />,
       url: 'https://chat.whatsapp.com/KswfWmJSRAsGI5TAHVO1Hi',
       color: 'bg-green-600 hover:bg-green-700',
       textColor: 'text-green-800',
-      description: 'گروه دوم پشتیبانی'
     },
     {
       id: 'telegram',
@@ -31,7 +29,6 @@ const PinpartSocialToolbarFinal: React.FC = () => {
       url: 'https://t.me/pinparts',
       color: 'bg-blue-500 hover:bg-blue-600',
       textColor: 'text-blue-700',
-      description: 'کانال رسمی پین پارت'
     },
     {
       id: 'instagram',
@@ -40,7 +37,6 @@ const PinpartSocialToolbarFinal: React.FC = () => {
       url: 'https://instagram.com/pinparts',
       color: 'bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600',
       textColor: 'text-pink-700',
-      description: 'اینستاگرام رسمی'
     }
   ];
 
@@ -163,7 +159,6 @@ const PinpartSocialToolbarFinal: React.FC = () => {
                         <span className={`text-sm font-bold ${channel.textColor}`}>
                           {channel.name}
                         </span>
-                        <span className="text-xs text-gray-500 whitespace-nowrap">{channel.description}</span>
                       </div>
                       <div className="mt-1 flex items-center justify-between">
                         <span className="text-xs text-gray-600 truncate max-w-[160px]">

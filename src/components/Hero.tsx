@@ -178,7 +178,7 @@ const Hero: React.FC = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="🔍 جستجوی قطعه مورد نظر..."
+                  placeholder="جستجوی قطعه مورد نظر..."
                   className="w-full pl-4 pr-12 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-right"
                 />
                 <button
@@ -189,17 +189,40 @@ const Hero: React.FC = () => {
                 </button>
               </div>
             </form>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {['موتور', 'گیربکس', 'لاستیک', 'چراغ جلو'].map((tag) => (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => handleTagClick(tag)}
-                  className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm hover:bg-white/20 transition-colors cursor-pointer"
-                >
-                  {tag}
-                </button>
-              ))}
+            
+            {/* Catalog Download Link */}
+            <div className="mt-6 text-center">
+              <button 
+                onClick={async () => {
+                  try {
+                    const response = await fetch('/pinpart-catalog.pdf');
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'کاتالوگ-پین-پارت.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(link);
+                  } catch (error) {
+                    console.error('Error downloading PDF:', error);
+                    // Fallback to direct download
+                    const link = document.createElement('a');
+                    link.href = '/pinpart-catalog.pdf';
+                    link.download = 'کاتالوگ-پین-پارت.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all shadow-lg hover:shadow-xl"
+              >
+                <span className="text-lg">📚 دانلود کاتالوگ پین پارت (5MB)</span>
+              </button>
+              <p className="text-blue-100 text-center text-sm mt-2">
+                دانلود فایل PDF کامل کاتالوگ محصولات ما
+              </p>
             </div>
           </div>
         </div>
